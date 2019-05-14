@@ -1,5 +1,8 @@
-Javascript
+Javascript Notes
 
+
+Links
+----------
 https://javascript.info/
 
 Javascript is currently ECMAScript 5 level
@@ -9,7 +12,7 @@ Typescript is ES6 with optional typing
 ‘==’ compares only values
 
 
-Class
+[ Class ]
 
 Class  Employee {
       // fields
@@ -38,7 +41,7 @@ Class  Employee {
 }
 
 
-Mixins
+[ Mixins ]
 
 Multiple classes can add mixins methods to it 
 
@@ -56,6 +59,6 @@ class Menu {}
 Object.assign(Menu.prototype, eventMixin);
 
 Advantage is same mixin can be used for multiple objects like  
-Menu
-Button 
-Window
+- Menu
+- Button 
+- Window
