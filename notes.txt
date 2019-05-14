@@ -1,0 +1,61 @@
+Javascript
+
+https://javascript.info/
+
+Javascript is currently ECMAScript 5 level
+ES6 is under development
+Typescript is ES6 with optional typing
+‘===’  means compare value as well as type of object
+‘==’ compares only values
+
+
+Class
+
+Class  Employee {
+      // fields
+      name ;
+      dateOfBirth;
+
+     // static fields
+     static  TYPE = 1;
+
+     // constructor
+     constructor(name,  dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+     }
+
+     computeCompensation () {
+
+     }
+
+     // static methods
+     static  empComparator(emp1, emp2) {
+         
+     }
+
+    
+}
+
+
+Mixins
+
+Multiple classes can add mixins methods to it 
+
+// subscribe/unsubscribe events to handler
+let eventMixin =   {
+     subscribe(eventName,  handler) {  }
+     unsubscribe(eventName, handler) {}
+     trigger (eventName)  {  // run the event }
+};
+
+
+class Menu {}
+
+// Add the mixin, ie add mixins methods to the class
+Object.assign(Menu.prototype, eventMixin);
+
+Advantage is same mixin can be used for multiple objects like  
+Menu
+Button 
+Window
