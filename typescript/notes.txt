@@ -1,0 +1,139 @@
+
+Types
+void, any , number, string , boolean , Type[]
+
+All numbers are floating point, type ‘number’
+‘any’ -  means  dynamic type.
+ eg can be used when types come from 3rd party JS libraries
+‘void’ - means no type (eg function returns nothing)
+Type erasure - types are erased during compilation
+
+Constructor
+Only one constructor possible
+there can be optional parameters in constructor definition 
+
+Optional property of interface denoted by ‘?’
+Optional parameters in functions are also denoted by ‘?’. They should come after required parameters. 
+
+Rest parameters -  variable arguments
+eg - add(...vals: number[])
+
+Variable scope
+Typescript / javascript don't support block based scope by default .  The variable inside a block (eg if condition) will be visible in entire function
+But we can use the ‘let’ keyword which will limit scope of the variable to that block
+let  str:string = ‘hello’;
+tsc --noimplicitAny  for forcing explicit typing
+
+
+Interfaces
+commonly used to describe rest query result types
+
+
+Overloading functions - multiple declarations, but one implementation 
+    class HelloWorld {   
+    // function overloading
+    add(a: number, b: number): number;
+    add(a: number, b: number, c: number): number;
+
+    add(a: number, b: number, c?: number): number {
+        if (c === undefined) {
+            return a + b;
+        }
+        else {
+            return a + b + c;
+        }
+}
+        }
+
+
+Array denoted by ’Array’  keyword
+Sorting
+var rectArr:Array<Rectangle> = new Array<Rectangle>();
+// sorting
+// Fat Arrow functions / lambdas
+rectArr.sort((a:Rectangle, b:Rectangle) => {
+    return a.area() - b.area();
+});
+Fat Arrow arrow functions allow you to use ‘this’ inside the function
+
+
+Enums
+enum Color { RED, GREEN, BLUE }
+
+
+
+Generics are supported. Type constraints are supported (super types, sub types).
+Interface
+interface Employee {
+  name:string;
+  empId:number;
+}
+
+// as object literal
+var emp:Employee = { name:’John’, empId : ‘101’ };
+
+class  DellEmployee implements Employee {
+…
+}
+
+Mixins - class created by combining other classes
+
+Exceptions - try/catch/finally support
+Custom exceptions
+
+// can use generic exception class or custom ones
+throw new Error(“Unable to contact DB”);
+..
+throw new MyException(“Unable to contact DB”);
+
+class MyException implements Error {
+    public name: string = 'My exception';
+
+    constructor(public message: string) {
+
+    }
+
+    toString(): string {
+               return this.name + ',' + this.message;
+    }
+}
+
+
+module
+
+math.ts
+module com {
+   module math {
+       export class Calculus {
+        }
+   }
+}
+
+include ts file
+/// <reference path=”math.ts” />
+
+External module /  import - TODO
+
+External modules
+CommonJS   - used with node
+Asynchronous Module Definitions - AMD  - used with browser
+typescript compilation is done with including one of the above
+Require.JS - dynamically includes one of the above as necessary
+
+
+Install  
+
+npm install -g typescript
+
+tsc helloworld.ts
+
+# installed in %appdata%
+C:\Users\Ratheesh\AppData\Roaming\npm\tsc
+ie
+%appdata%\npm\tsc
+
+set path=%appdata%\npm;%path%
+
+Links
+
+http://www.typescriptlang.org/Tutorial
