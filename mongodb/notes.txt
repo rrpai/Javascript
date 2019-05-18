@@ -1,0 +1,81 @@
+
+Mongo db
+
+
+set path=D:\Installs\MongoDB\Server\3.2\bin;%path%
+
+mkdir d:\data\db
+
+
+
+use test_1
+
+derekbanas = {"name" : "Derek Banas",
+ "position" : "Programmer",
+ "email" : "db@aol.com",
+ "hiredate" : new Date()
+ }
+ 
+ db.test_1.insert(derekbanas)
+ 
+ db.test_1.find().pretty()
+ 
+ db.test_1.find( {"name" : "Derek Banas"}  ).pretty()
+ 
+ 
+ derekbanas.references = []
+ db.test_1.update(  {"name" : "Derek Banas"} , derekbanas )
+ 
+ 
+randomdata = {"name" : null, "over20" : true, "height" : 6.25,
+"bigint" : 4294967295, "bigLong" : 18446744073709551616,
+"address" : "123 Main St", "grades" : ["a", "b", "c", "d", "f"],
+"hiredate" : new Date(), "streetregex" : '/^[A-Za-z0-9\.\' \-]{5,30}$/',
+"info" : {"name" : "Sue Smith"}}
+
+db.test_1.insert(randomdata)
+
+Mongo RC file
+
+
+c:\Users\Ratheesh\.mongorc.js
+
+var protectDB = function() {
+
+db.dropDatabase = DB.prototype.dropDatabase = no;
+
+DBCollection.prototype.drop = no;
+
+DBCollection.prototype.dropIndex = no;
+
+print("Database Protected");
+
+};
+
+prompt = function(){
+
+if (typeof db == 'undefined'){
+
+return 'nodb > ';
+
+}
+
+return db + " >" ;
+
+};
+
+
+Map - Reduce
+
+
+Map - map a set of key value pairs to another set of key-value pairs
+Reduce  -  map a set of key value pairs to another aggregated set of key-value pairs
+
+
+Links
+
+
+http://www.newthinktank.com/2015/12/mongodb-tutorial/
+http://www.newthinktank.com/2015/12/mongodb-tutorial-2/
+http://www.newthinktank.com/2015/12/mongodb-tutorial-3/
+http://www.newthinktank.com/2015/12/mongodb-tutorial-4/
